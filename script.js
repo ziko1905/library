@@ -12,7 +12,6 @@ function addBookToLibrary(book) {
     myLibrary.push(book)
     const table = document.querySelector("tbody");
     const row = document.createElement("tr");
-    console.log(book)
 
     for (n in book) {
       const cell = document.createElement("td");
@@ -40,7 +39,6 @@ const btn = document.querySelector(".show");
 const formDiv = document.querySelector(".form");
 
 btn.addEventListener("click", () => {
-  console.log("clicked")
   if (getComputedStyle(formDiv).zIndex == "2") formDiv.style.zIndex = "0";
   else formDiv.style.zIndex = "2";
   }
@@ -50,12 +48,9 @@ const form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault()
-  console.log("here")
   if (e.target.reportValidity()) {
     const formData = new FormData(e.target)
     const newBook = new Book(formData.get("booktitle"), formData.get("bookauthor"), formData.get("bookpages"), formData.get("read"))
     addBookToLibrary(newBook)
   }
-  
-  
 })
