@@ -53,7 +53,8 @@ form.addEventListener("submit", (e) => {
   console.log("here")
   if (e.target.reportValidity()) {
     const formData = new FormData(e.target)
-    console.log(formData.get("booktitle"))
+    const newBook = new Book(formData.get("booktitle"), formData.get("bookauthor"), formData.get("bookpages"), formData.get("read"))
+    addBookToLibrary(newBook)
   }
   
   
