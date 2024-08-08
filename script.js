@@ -10,9 +10,20 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(book) {
     myLibrary.push(book)
-    for (let n = 0; n < myLibrary.length; n++) {
-      console.log(`${n + 1} ${myLibrary[n].title} by ${myLibrary[n].author} has ${myLibrary[n].pages} pages`)
+    const table = document.querySelector("tbody");
+    const row = document.createElement("tr");
+    console.log(book)
+
+    for (n in book) {
+      const cell = document.createElement("td");
+      cell.textContent = `${book[n]}`
+      row.appendChild(cell)
     }
+
+    const cell = document.createElement("td");
+    row.appendChild(cell)
+
+    table.appendChild(row)
 }
 
 let book1 = new Book("Lorem", "John", 152, false)
