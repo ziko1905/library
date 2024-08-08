@@ -26,7 +26,7 @@ function addBookToLibrary(book) {
     const rmBtn = document.createElement("button");
 
     rmBtn.textContent = "Remove";
-    rmBtn.setAttribute("class", "remove");
+    rmBtn.setAttribute("class", "remove-btn");
     
     btnCell.appendChild(rmBtn);
     row.appendChild(btnCell);
