@@ -24,3 +24,7 @@ addBookToLibrary(book1)
 addBookToLibrary(book2)
 addBookToLibrary(book3)
 addBookToLibrary(book4)
+
+let btn = document.querySelector("button");
+
+btn.addEventListener("click", () => console.log("clicked"))
