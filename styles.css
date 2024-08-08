@@ -57,6 +57,7 @@ body {
 }
 
 .action {
+    position: relative;
     background-color: thistle;
     height: 100vh;
     padding: 200px 0;
@@ -65,8 +66,22 @@ body {
     flex-direction: column;
     justify-items: center;
     align-items: center;
+}
+.form {
+    z-index: 0;
 
+    background-color: blue;
+    width: 100%;
+    height: 100%;
+}
+
+.blocker {
+    position: absolute;
     z-index: 1;
+
+    background-color: thistle;
+    height: 49%;
+    width: 100%;
 }
 
 button {
