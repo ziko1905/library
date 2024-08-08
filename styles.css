@@ -85,7 +85,7 @@ form {
     height: 100%;
 }
 
-.submit-btn {
+#submit-btn {
     justify-self: center;
     align-self: end;
     font-size: 1rem;

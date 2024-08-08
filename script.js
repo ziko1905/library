@@ -19,8 +19,8 @@ function addBookToLibrary(book) {
       if (n == "read") {
         const readBtn = document.createElement("button")
         readBtn.setAttribute("class", "table-btn")
-        readBtn.id = book[n] ? "read" : "not-read";
-        readBtn.textContent = book[n] ? "Read" : "Not read";
+        readBtn.id = book[n] == "true" ? "read" : "not-read";
+        readBtn.textContent = book[n] == "true" ? "Read" : "Not read";
 
         readBtn.addEventListener("click", () => {
           readBtn.textContent = readBtn.id == "read" ? "Not read" : "Read";
