@@ -22,13 +22,13 @@
     <div class="action">
         <div class="form">
             <form action="#">
-                <label for="title">Title: <input type="text" name="booktitle" id="title"></label>
-                <label for="author">Author: <input type="text" name="bookauthor" id="author"></label>
-                <label for="pages">Pages: <input type="number" name="bookpages" id="pages"></label>
+                <label for="title">Title: <input type="text" name="booktitle" id="title" required></label>
+                <label for="author">Author: <input type="text" name="bookauthor" id="author" required></label>
+                <label for="pages">Pages: <input min="1" type="number" name="bookpages" id="pages" required></label>
                 <p>Have you read it:</p>
                 <div class="radio">
                     <div class="option">
-                        <input type="radio" name="read" id="read-opt1" value="true">
+                        <input type="radio" name="read" id="read-opt1" value="true" required>
                         <label for="read-opt1">I have read it!</label>
                     </div>
                     <div class="option">
