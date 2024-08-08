@@ -6,7 +6,6 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.row = null;
 
 }
 
@@ -14,13 +13,14 @@ function addBookToLibrary(book) {
     myLibrary.push(book)
     const table = document.querySelector("tbody");
     const row = document.createElement("tr");
-    book.row = row;
-
+    
     for (n in book) {
       const cell = document.createElement("td");
       cell.textContent = `${book[n]}`
       row.appendChild(cell)
     }
+
+    book.row = row;
 
     const btnCell = document.createElement("td");
     const rmBtn = document.createElement("button");
