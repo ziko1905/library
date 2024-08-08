@@ -44,3 +44,26 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
     isolation: isolate;
 }
+
+body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.table {
+    background-color: aqua;
+    height: 100vh;
+}
+
+.action {
+    background-color: thistle;
+    height: 100vh;
+    padding: 200px 0;
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
+
+    z-index: 1;
+}
