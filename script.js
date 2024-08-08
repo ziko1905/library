@@ -25,6 +25,12 @@ addBookToLibrary(book2)
 addBookToLibrary(book3)
 addBookToLibrary(book4)
 
-let btn = document.querySelector("button");
+const btn = document.querySelector(".show");
+const formDiv = document.querySelector(".form");
 
-btn.addEventListener("click", () => console.log("clicked"))
+btn.addEventListener("click", () => {
+  console.log("clicked")
+  if (getComputedStyle(formDiv).zIndex == "2") formDiv.style.zIndex = "0";
+  else formDiv.style.zIndex = "2";
+  }
+)
