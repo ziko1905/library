@@ -7,3 +7,10 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
 }
+
+function addBookToLibrary(book) {
+    myLibrary.push(book)
+    for (let n = 0; n < myLibrary.length; n++) {
+      console.log(`${n + 1} ${myLibrary[n].title} by ${myLibrary[n].author} has ${myLibrary[n].pages} pages`)
+    }
+  }
