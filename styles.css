@@ -85,7 +85,7 @@ form {
     height: 100%;
 }
 
-form button {
+.submit-btn {
     justify-self: center;
     align-self: end;
     font-size: 1rem;
@@ -154,12 +154,20 @@ td {
     border: none;
 }
 
-.remove-btn {
+.table-btn {
     background-color: rgb(218, 80, 80);
     font-size: 1rem;
     padding: 5px 25px;
 }
 
-.remove-btn:active {
+.table-btn:active {
     background-color:rgb(153, 55, 55) ;
+}
+
+#read {
+    background-color: rgb(71, 255, 47);
+}
+
+#read:active {
+    background-color: rgb(59, 168, 38);
 }

@@ -16,7 +16,20 @@ function addBookToLibrary(book) {
     
     for (n in book) {
       const cell = document.createElement("td");
-      cell.textContent = `${book[n]}`
+      if (n == "read") {
+        const readBtn = document.createElement("button")
+        readBtn.setAttribute("class", "table-btn")
+        readBtn.id = book[n] ? "read" : "not-read";
+        readBtn.textContent = book[n] ? "Read" : "Not read";
+
+        readBtn.addEventListener("click", () => {
+          readBtn.textContent = readBtn.id == "read" ? "Not read" : "Read";
+          readBtn.id = readBtn.id == "read" ? "not-read" : "read"
+        })
+
+        cell.appendChild(readBtn)
+      }
+      else cell.textContent = `${book[n]}`
       row.appendChild(cell)
     }
 
@@ -26,7 +39,7 @@ function addBookToLibrary(book) {
     const rmBtn = document.createElement("button");
 
     rmBtn.textContent = "Remove";
-    rmBtn.setAttribute("class", "remove-btn");
+    rmBtn.setAttribute("class", "table-btn");
     
     btnCell.appendChild(rmBtn);
     row.appendChild(btnCell);
