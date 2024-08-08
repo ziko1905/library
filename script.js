@@ -6,12 +6,15 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.row = null;
+
 }
 
 function addBookToLibrary(book) {
     myLibrary.push(book)
     const table = document.querySelector("tbody");
     const row = document.createElement("tr");
+    book.row = row;
 
     for (n in book) {
       const cell = document.createElement("td");
@@ -19,8 +22,19 @@ function addBookToLibrary(book) {
       row.appendChild(cell)
     }
 
-    const cell = document.createElement("td");
-    row.appendChild(cell)
+    const btnCell = document.createElement("td");
+    const rmBtn = document.createElement("button");
+
+    rmBtn.textContent = "Remove";
+    rmBtn.setAttribute("class", "remove");
+    
+    btnCell.appendChild(rmBtn);
+    row.appendChild(btnCell);
+
+    rmBtn.addEventListener("click", () => {
+      book.row.remove()
+      delete book
+    })
 
     table.appendChild(row)
 }
