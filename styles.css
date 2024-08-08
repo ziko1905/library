@@ -82,9 +82,13 @@ button {
 }
 
 button:active {
-    background-color: rgb(80, 165, 137);
+    background-color: rgb(84, 182, 144);
 }
 
 .form {
     flex: 1;
+}
+
+td {
+    border: 1px solid black;
 }
