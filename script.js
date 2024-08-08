@@ -45,3 +45,16 @@ btn.addEventListener("click", () => {
   else formDiv.style.zIndex = "2";
   }
 )
+
+const form = document.querySelector("form");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault()
+  console.log("here")
+  if (e.target.reportValidity()) {
+    const formData = new FormData(e.target)
+    console.log(formData.get("booktitle"))
+  }
+  
+  
+})
