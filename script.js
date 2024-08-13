@@ -1,4 +1,3 @@
-const myLibrary = [];
 
 class Book {
   // the constructor...
@@ -10,12 +9,12 @@ class Book {
   }
 }
 
-function addBookToLibrary(book) {
-    myLibrary.push(book)
+class ManageLibrary {
+  static addBookToLibrary(book) {
     const table = document.querySelector("tbody");
     const row = document.createElement("tr");
     
-    for (n in book) {
+    for (let n in book) {
       const cell = document.createElement("td");
       if (n == "read") {
         const readBtn = document.createElement("button")
@@ -47,29 +46,41 @@ function addBookToLibrary(book) {
 
     rmBtn.addEventListener("click", () => {
       book.row.remove()
-      delete book
+      delete this.book
     })
 
     table.appendChild(row)
+  }
+
+  static functionalizeFormPopUp() {
+    const btn = document.querySelector(".show");
+    const formDiv = document.querySelector(".form");
+    
+    btn.addEventListener("click", () => {
+      if (getComputedStyle(formDiv).zIndex == "2") formDiv.style.zIndex = "0";
+      else formDiv.style.zIndex = "2";
+      }
+    )
+  }
+
+  static functionalizeFormSubmit() {
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault()
+      if (e.target.reportValidity()) {
+        const formData = new FormData(e.target)
+        const newBook = new Book(formData.get("booktitle"), formData.get("bookauthor"), formData.get("bookpages"), formData.get("read"))
+        this.addBookToLibrary(newBook)
+        e.target.reset()
+      }
+    })
+  }
 }
 
-const btn = document.querySelector(".show");
-const formDiv = document.querySelector(".form");
+ManageLibrary.functionalizeFormPopUp()
+ManageLibrary.functionalizeFormSubmit()
 
-btn.addEventListener("click", () => {
-  if (getComputedStyle(formDiv).zIndex == "2") formDiv.style.zIndex = "0";
-  else formDiv.style.zIndex = "2";
-  }
-)
 
-const form = document.querySelector("form");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault()
-  if (e.target.reportValidity()) {
-    const formData = new FormData(e.target)
-    const newBook = new Book(formData.get("booktitle"), formData.get("bookauthor"), formData.get("bookpages"), formData.get("read"))
-    addBookToLibrary(newBook)
-    e.target.reset()
-  }
-})
+
