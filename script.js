@@ -81,6 +81,4 @@ class ManageLibrary {
 ManageLibrary.functionalizeFormPopUp()
 ManageLibrary.functionalizeFormSubmit()
 
-
-
-
+// Custom form validation section
