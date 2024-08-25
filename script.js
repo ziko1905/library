@@ -82,3 +82,49 @@ ManageLibrary.functionalizeFormPopUp()
 ManageLibrary.functionalizeFormSubmit()
 
 // Custom form validation section
+const titleInp = document.querySelector("input#title");
+const authorInp = document.querySelector("input#author");
+const pagesInp = document.querySelector("input#pages");
+const submitBtn = document.querySelector("#submit-btn");
+const radioBtn1 = document.querySelector("#read-opt1");
+const radioBtn2 = document.querySelector("#read-opt2");
+const form = document.querySelector("form");
+
+submitBtn.addEventListener("click", () => {
+  if (titleInp.validity.valueMissing) {
+    titleInp.setCustomValidity("It has title. Right?");
+  } else {
+    titleInp.setCustomValidity("");
+  }
+  if (authorInp.validity.valueMissing) {
+    authorInp.setCustomValidity("Someone has to write it. Even if its anonymous!");
+  } else {
+    authorInp.setCustomValidity("");
+  }
+  if (radioBtn1.validity.valueMissing) {
+    radioBtn1.setCustomValidity("Its a simple yes or no.")
+  } else {
+  radioBtn1.setCustomValidity("")
+  radioBtn2.setCustomValidity("")
+  }
+})
+
+pagesInp.addEventListener("input", () => {
+  if (pagesInp.validity.rangeUnderflow) {
+    pagesInp.setCustomValidity("Common its surly longer than that.");
+    pagesInp.reportValidity();
+  } else if ((pagesInp.validity.rangeOverflow)) {
+    pagesInp.setCustomValidity("Are you sure its that long?");
+    pagesInp.reportValidity();
+  } else pagesInp.setCustomValidity("")
+})
+
+radioBtn1.addEventListener("input", () => {
+  radioBtn1.setCustomValidity("Good job mate!")
+  radioBtn1.reportValidity()
+})
+
+radioBtn2.addEventListener("input", () => {
+  radioBtn2.setCustomValidity("Ahh, get yourself together!")
+  radioBtn2.reportValidity()
+})
